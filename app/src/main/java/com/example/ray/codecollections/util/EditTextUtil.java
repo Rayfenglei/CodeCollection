@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
-import com.nbc.browserlib.R;
+
 
 /**通用密码、手机号、验证码输入框输入字符判断及错误提示 类
  * @use EditTextUtil.xxxMethod(...);

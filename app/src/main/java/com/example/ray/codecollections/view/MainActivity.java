@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import com.example.ray.codecollections.R;
 import com.example.ray.codecollections.base.BaseActivity;
+import com.example.ray.codecollections.base.BasePresenter;
 import com.example.ray.codecollections.view.functionactivity.FunctionActivity;
 import com.example.ray.codecollections.view.recycleractivity.NavigationRecyclerActivity;
 
@@ -39,6 +40,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         btRecyclers = findViewById(R.id.bt_to_recyclers);
         btFunctions = findViewById(R.id.bt_to_functions);
 
+    }
+
+    @Override
+    protected BasePresenter createPresenter() {
+        return null;
     }
 
     @Override

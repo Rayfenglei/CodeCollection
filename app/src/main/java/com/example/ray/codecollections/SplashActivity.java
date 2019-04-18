@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.ray.codecollections.base.BaseActivity;
+import com.example.ray.codecollections.base.BasePresenter;
 import com.example.ray.codecollections.util.PermissionsUtil;
 import com.example.ray.codecollections.view.MainActivity;
 
@@ -76,4 +77,9 @@ public class SplashActivity extends BaseActivity {
             super.handleMessage(msg);
         }
     }
+    @Override
+    protected BasePresenter createPresenter() {
+        return null;
+    }
+
 }

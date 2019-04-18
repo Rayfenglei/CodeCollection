@@ -8,6 +8,7 @@ import android.view.Window;
 
 import com.example.ray.codecollections.R;
 import com.example.ray.codecollections.base.BaseActivity;
+import com.example.ray.codecollections.base.BasePresenter;
 import com.example.ray.codecollections.designmodel.observer.ObserverFragment;
 import com.example.ray.codecollections.view.functionactivity.download.DownloadFragment;
 import com.example.ray.codecollections.view.functionactivity.network.NetworkFragment;
@@ -87,4 +88,9 @@ public class FunctionActivity extends BaseActivity {
         //打开指定界面
         mTabLayout.getTabAt(0).select();
     }
+    @Override
+    protected BasePresenter createPresenter() {
+        return null;
+    }
+
 }

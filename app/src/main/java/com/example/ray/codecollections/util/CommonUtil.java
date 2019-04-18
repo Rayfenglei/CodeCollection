@@ -31,7 +31,6 @@ import android.text.TextUtils;
 import android.view.Gravity;
 import android.widget.Toast;
 
-import com.nbc.browserlib.R;
 
 import java.io.File;
 import java.io.FileNotFoundException;
