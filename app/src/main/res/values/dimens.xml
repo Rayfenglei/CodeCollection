@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="rv_text_size">24sp</dimen>
+
+    <!--   rv_move     -->
+    <dimen name="rv_move_tv">45dp</dimen>
+    <dimen name="rv_move_fragment">32dp</dimen>
+
+</resources>

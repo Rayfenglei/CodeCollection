@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">CodeCollections</string>
+    <string name="Recycler">Recyclers</string>
+    <string name="Function">Functions</string>
+    <!--dialog-->
+    <string name="bt_dialog">Dialogs</string>
+    <string name="narmal_dialog">normal</string>
+    <string name="list_dialog">list</string>
+    <string name="single_choice_dialog">single choice</string>
+    <string name="multi_choice_dialog">multi choice</string>
+    <string name="edit_dialog">edit</string>
+    <string name="define_dialog">define</string>
+
+    <string name="edit">编辑</string>
+    <string name="finish">完成</string>
+    <string name="rv_header">this item\'s head</string>
+    <string name="rv_footer">this item\'s foot</string>
+
+    <!--download-->
+    <string name="download_start">Start</string>
+    <string name="download_cancel">Cancel</string>
+    <string name="download_stop">Stop</string>
+
+    <string name="strExecute">执行SQL</string>
+    <string name="strAdd">新增</string>
+    <string name="strDelete">删除</string>
+    <string name="strUpdate">修改</string>
+    <string name="strQuery1">数据查询</string>
+    <string name="strQuery2">统计查询</string>
+    <string name="strQuery3">比较查询</string>
+    <string name="strInputSqlHint">update Orders set OrderPrice = 100 where Id = 6</string>
+    <string name="strInputSql">请输入SQL语句</string>
+    <string name="strErrorSql">执行出错，请检查SQL语句</string>
+    <string name="strSuccessSql">执行SQL语句成功</string>
+    <string name="strUnableSql">Sorry，还没处理select语句</string>
+    <string name="title_activity_animation">Animation</string>
+
+    <string name="search">搜索</string>
+</resources>
