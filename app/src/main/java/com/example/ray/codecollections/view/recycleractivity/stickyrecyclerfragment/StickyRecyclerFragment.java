@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ray.codecollections.R;
-import com.example.ray.codecollections.base.BaseFragment;
+import com.example.ray.codecollections.base.BaseFragment1;
 import com.example.ray.codecollections.view.recycleractivity.hfrecyclerfragment.QuickItemTouchCallback;
 import com.example.ray.collection.Sticky.library.PowerfulStickyDecoration;
 import com.example.ray.collection.Sticky.library.StickyDecoration;
@@ -25,7 +25,7 @@ import com.example.ray.collection.Sticky.library.util.DensityUtil;
 
 import java.util.ArrayList;
 
-public class StickyRecyclerFragment extends BaseFragment {
+public class StickyRecyclerFragment extends BaseFragment1 {
     private StickyRecyclerAdapter mAdapter;
     private RecyclerView mRecyclerView;
     private ArrayList<StickyRecyclerBean> mDatas;

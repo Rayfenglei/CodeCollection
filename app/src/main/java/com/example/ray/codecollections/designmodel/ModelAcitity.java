@@ -1,12 +1,12 @@
 package com.example.ray.codecollections.designmodel;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.ray.codecollections.R;
-import com.example.ray.codecollections.base.BaseActivity;
+import com.example.ray.codecollections.base.BaseActivity1;
+import com.example.ray.codecollections.base.BasePresenter;
 
-public class ModelAcitity extends BaseActivity {
+public class ModelAcitity extends BaseActivity1 {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,5 +28,10 @@ public class ModelAcitity extends BaseActivity {
     @Override
     public void initEvent() {
 
+    }
+
+    @Override
+    protected BasePresenter createPresenter() {
+        return null;
     }
 }

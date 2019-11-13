@@ -8,14 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import com.example.ray.codecollections.R;
-import com.example.ray.codecollections.base.BaseFragment;
+import com.example.ray.codecollections.base.BaseFragment1;
 
 /*
 * 观察者模式 发布-订阅
 * EventBus BroadcastReceiver RxJava
 * */
 
-public class ObserverFragment extends BaseFragment implements View.OnClickListener{
+public class ObserverFragment extends BaseFragment1 implements View.OnClickListener{
     private Button button1,button2;
     // 1、声明被观察者
     private PersonObservable observable;

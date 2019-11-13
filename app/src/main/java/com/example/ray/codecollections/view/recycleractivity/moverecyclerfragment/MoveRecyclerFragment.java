@@ -11,12 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.ray.codecollections.R;
-import com.example.ray.codecollections.base.BaseFragment;
+import com.example.ray.codecollections.base.BaseFragment1;
 
 
 import java.util.ArrayList;
 
-public class MoveRecyclerFragment extends BaseFragment {
+public class MoveRecyclerFragment extends BaseFragment1 {
 
     private ArrayList<RecyclerMoveItemBean> list;
     private RecyclerView mRecyclerView;

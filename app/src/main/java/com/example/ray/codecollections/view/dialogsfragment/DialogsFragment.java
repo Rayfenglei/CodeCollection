@@ -11,12 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.example.ray.codecollections.base.BaseFragment;
+import com.example.ray.codecollections.base.BaseFragment1;
 import com.example.ray.codecollections.R;
 
-public class DialogsFragment extends BaseFragment implements View.OnClickListener{
+public class DialogsFragment extends BaseFragment1 implements View.OnClickListener{
     private Button btNormal,btList,btSingle,btMulti,btEdit,btDefine;
     @Nullable
     @Override

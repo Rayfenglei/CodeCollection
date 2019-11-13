@@ -6,8 +6,10 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 
 import com.example.ray.codecollections.R;
-import com.example.ray.codecollections.base.BaseActivity;
+import com.example.ray.codecollections.base.BaseActivity1;
+import com.example.ray.codecollections.base.BasePresenter;
 import com.example.ray.codecollections.view.functionactivity.searchbanner.SearchFragment;
+import com.example.ray.codecollections.view.recycleractivity.moverecyclerfragment.MoveRecyclerFragment;
 import com.example.ray.codecollections.view.recycleractivity.normalrecyclerfragment.NormalRecyclerFragment;
 import com.example.ray.codecollections.view.recycleractivity.hfrecyclerfragment.RecyclerFragment;
 import com.example.ray.codecollections.view.recycleractivity.stickyrecyclerfragment.StickyRecyclerFragment;
@@ -15,7 +17,7 @@ import com.example.ray.codecollections.view.recycleractivity.stickyrecyclerfragm
 import java.util.ArrayList;
 import java.util.List;
 
-public class NavigationRecyclerActivity extends BaseActivity {
+public class NavigationRecyclerActivity extends BaseActivity1 {
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     private List<Fragment> mFragmentList;
@@ -42,7 +44,7 @@ public class NavigationRecyclerActivity extends BaseActivity {
         mFragmentList.add(new NormalRecyclerFragment());
         mFragmentList.add(new RecyclerFragment());
         mFragmentList.add(new StickyRecyclerFragment());
-        mFragmentList.add(new SearchFragment());
+        mFragmentList.add(new MoveRecyclerFragment());
 
         mAdapter = new NavigationRecyclerAdapter(getSupportFragmentManager(),mFragmentList,this);
         mViewPager.setAdapter(mAdapter);
@@ -86,4 +88,8 @@ public class NavigationRecyclerActivity extends BaseActivity {
         mTabLayout.getTabAt(0).select();
     }
 
+    @Override
+    protected BasePresenter createPresenter() {
+        return null;
+    }
 }

@@ -6,19 +6,15 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
-import com.example.ray.codecollections.base.BaseActivity;
+import com.example.ray.codecollections.base.BaseActivity1;
 import com.example.ray.codecollections.base.BasePresenter;
 import com.example.ray.codecollections.util.PermissionsUtil;
 import com.example.ray.codecollections.view.MainActivity;
 
 import java.lang.ref.WeakReference;
 
-public class SplashActivity extends BaseActivity {
+public class SplashActivity extends BaseActivity1 {
     private Handler handler = new mHandler(getBaseContext());
     @Override
     protected void onCreate(Bundle savedInstanceState) {

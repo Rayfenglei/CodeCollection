@@ -19,7 +19,7 @@ public class SearchAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     private Context context;
     private FilterListener listener = null;// 接口对象
     private MyFilter filter = null;// 创建MyFilter对象
-
+    private OnClickItemListener onClickItemListener;
     public SearchAdapter(Context context, ArrayList<String> mLists, FilterListener listener) {
         this.mLists = mLists;
         this.context = context;
@@ -43,9 +43,15 @@ public class SearchAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, final int position) {
         SearchAdapter.ViewHolder holder = (SearchAdapter.ViewHolder) viewHolder;
         holder.tv.setText(mLists.get(position));
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickItemListener.onClickItem(mLists.get(position));
+            }
+        });
     }
 
     @Override
@@ -122,5 +128,11 @@ public class SearchAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     }
 
+    public interface OnClickItemListener{
+        void onClickItem(String s);
+    }
 
+    public void setOnClickItemListener(OnClickItemListener onClickItemListener){
+        this.onClickItemListener = onClickItemListener;
+    }
 }

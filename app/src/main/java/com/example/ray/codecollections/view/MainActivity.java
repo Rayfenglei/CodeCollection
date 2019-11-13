@@ -1,30 +1,32 @@
 package com.example.ray.codecollections.view;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import com.example.ray.codecollections.R;
-import com.example.ray.codecollections.base.BaseActivity;
+import com.example.ray.codecollections.base.BaseActivity1;
 import com.example.ray.codecollections.base.BasePresenter;
 import com.example.ray.codecollections.view.functionactivity.FunctionActivity;
 import com.example.ray.codecollections.view.recycleractivity.NavigationRecyclerActivity;
+import com.example.ray.codecollections.view.scrollactivity.ScrollingActivity;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
-import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener{
+public class MainActivity extends BaseActivity1 implements View.OnClickListener{
     private static final String TAG = "RX2JavaTest";
     private Button btRecyclers;
     private Button btFunctions;
-
+    private Button btScrolls;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +41,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     public void initView() {
         btRecyclers = findViewById(R.id.bt_to_recyclers);
         btFunctions = findViewById(R.id.bt_to_functions);
-
+        btScrolls = findViewById(R.id.bt_to_scroll);
     }
 
     @Override
@@ -56,6 +58,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     public void initEvent() {
         btRecyclers.setOnClickListener(this);
         btFunctions.setOnClickListener(this);
+        btScrolls.setOnClickListener(this);
     }
 
     @Override
@@ -66,6 +69,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 break;
             case R.id.bt_to_functions:
                 startActivity(new Intent(this, FunctionActivity.class));
+                break;
+            case R.id.bt_to_scroll:
+                startActivity(new Intent(this, ScrollingActivity.class));
                 break;
             default:
                 break;

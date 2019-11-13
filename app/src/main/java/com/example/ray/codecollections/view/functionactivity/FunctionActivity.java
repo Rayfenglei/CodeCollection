@@ -4,20 +4,18 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.view.Window;
 
 import com.example.ray.codecollections.R;
-import com.example.ray.codecollections.base.BaseActivity;
+import com.example.ray.codecollections.base.BaseActivity1;
 import com.example.ray.codecollections.base.BasePresenter;
 import com.example.ray.codecollections.designmodel.observer.ObserverFragment;
-import com.example.ray.codecollections.view.functionactivity.download.DownloadFragment;
 import com.example.ray.codecollections.view.functionactivity.network.NetworkFragment;
 import com.example.ray.codecollections.view.functionactivity.searchbanner.SearchFragment;
 import com.example.ray.codecollections.view.functionactivity.sqlite.SQLiteFragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FunctionActivity extends BaseActivity {
+public class FunctionActivity extends BaseActivity1 {
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
     private List<Fragment> mFragmentList;

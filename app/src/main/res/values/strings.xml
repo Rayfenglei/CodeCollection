@@ -2,6 +2,7 @@
     <string name="app_name">CodeCollections</string>
     <string name="Recycler">Recyclers</string>
     <string name="Function">Functions</string>
+    <string name="Scroll">Scroller</string>
     <!--dialog-->
     <string name="bt_dialog">Dialogs</string>
     <string name="narmal_dialog">normal</string>
@@ -36,4 +37,8 @@
     <string name="title_activity_animation">Animation</string>
 
     <string name="search">搜索</string>
+    <string name="title_activity_bessel_line">BesselLineActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

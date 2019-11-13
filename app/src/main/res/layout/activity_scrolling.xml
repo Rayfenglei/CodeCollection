@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/bt_scroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="时间（拖拽）"/>
+    <com.example.ray.codecollections.defineviews.ClockView
+        android:id="@+id/clockview"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        />
+    <LinearLayout
+        android:id="@+id/ll_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/clockview"
+        android:gravity="center_horizontal">
+        <EditText
+            android:id="@+id/et_hour"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="时"
+            />
+        <EditText
+            android:id="@+id/et_minute"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="分"/>
+        <EditText
+            android:id="@+id/et_second"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="秒"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

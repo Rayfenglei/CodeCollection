@@ -11,11 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.ray.codecollections.R;
-import com.example.ray.codecollections.base.BaseFragment;
+import com.example.ray.codecollections.base.BaseFragment1;
 import com.example.ray.codecollections.view.recycleractivity.hfrecyclerfragment.RecyclerBean;
 import java.util.ArrayList;
 
-public class NormalRecyclerFragment extends BaseFragment {
+public class NormalRecyclerFragment extends BaseFragment1 {
     private RecyclerView mRecyclerView;
     private ArrayList<RecyclerBean> mDatas;
     private NormalRecyclerAdapter mAdapter;

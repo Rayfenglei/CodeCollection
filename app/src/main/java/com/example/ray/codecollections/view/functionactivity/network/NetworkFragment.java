@@ -9,14 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.ray.codecollections.R;
-import com.example.ray.codecollections.base.BaseFragment;
+import com.example.ray.codecollections.base.BaseFragment1;
 import java.util.ArrayList;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class NetworkFragment extends BaseFragment {
+public class NetworkFragment extends BaseFragment1 {
     private TabLayout mTabLayout;
     private VideoModelImpl videoModel;
     private ArrayList<CategoryBean> categoryBeans = new ArrayList<>();

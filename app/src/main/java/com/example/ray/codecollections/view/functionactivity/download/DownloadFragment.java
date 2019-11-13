@@ -14,9 +14,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.ray.codecollections.R;
-import com.example.ray.codecollections.base.BaseFragment;
+import com.example.ray.codecollections.base.BaseFragment1;
 
-public class DownloadFragment extends BaseFragment implements View.OnClickListener{
+public class DownloadFragment extends BaseFragment1 implements View.OnClickListener{
     private Button btStart,btStop,btCancle;
     private DownloadService.DownloadBinder downloadBinder;
     private ServiceConnection serviceConnection;

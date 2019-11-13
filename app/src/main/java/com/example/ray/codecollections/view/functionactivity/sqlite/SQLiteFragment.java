@@ -15,12 +15,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ray.codecollections.R;
-import com.example.ray.codecollections.base.BaseFragment;
+import com.example.ray.codecollections.base.BaseFragment1;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SQLiteFragment extends BaseFragment implements View.OnClickListener{
+public class SQLiteFragment extends BaseFragment1 implements View.OnClickListener{
     private static final String TAG = "SQLiteFragment";
 
     private SQLiteMethod ordersMethod;

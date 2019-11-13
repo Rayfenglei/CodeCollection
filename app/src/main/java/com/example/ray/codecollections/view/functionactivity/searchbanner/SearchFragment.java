@@ -1,5 +1,7 @@
 package com.example.ray.codecollections.view.functionactivity.searchbanner;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,18 +18,24 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import com.example.ray.codecollections.R;
-import com.example.ray.codecollections.base.BaseFragment;
+import com.example.ray.codecollections.base.BaseFragment1;
 import java.util.ArrayList;
 
-public class SearchFragment extends BaseFragment implements View.OnClickListener{
-    private RecyclerView mRecyclerView;
+public class SearchFragment extends BaseFragment1 implements View.OnClickListener,FilterListener{
+    private static final String TAG = "SearchFragment";
+    private RecyclerView rvSearch,rvSearchHistory;
     private EditText mEditText;
+    private String mEditContent;
     private Button mButton;
     private TextView tvHistory;
     private TextView tvClear;
     private String[] datas;
     private SearchAdapter mAdapter;
+    private SearchHistoryAdapter mHistoryAdapter;
     private ArrayList<String> mLists = new ArrayList<>();
+    private ArrayList<String> mHistoryLists = new ArrayList<>();
+    private SearchDQHelper dqHelper;
+    private SQLiteDatabase sqlData;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -41,7 +49,8 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
 
     @Override
     public void initView() {
-        mRecyclerView = view.findViewById(R.id.rv_search);
+        rvSearch = view.findViewById(R.id.rv_search);
+        rvSearchHistory = view.findViewById(R.id.rv_search_history);
         mEditText = view.findViewById(R.id.et_search);
         mButton = view.findViewById(R.id.bt_search);
         tvHistory = view.findViewById(R.id.tv_search_history);
@@ -51,19 +60,17 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
     @Override
     public void initData() {
         initListData();
+        dqHelper = new SearchDQHelper(context.getApplicationContext());
+        getHistorySearch();
         // 这里创建adapter的时候，构造方法参数传了一个接口对象，这很关键，回调接口中的方法来实现对过滤后的数据的获取
-        mAdapter = new SearchAdapter(context, mLists, new FilterListener() {
-            // 回调方法获取过滤后的数据
-            public void getFilterData(ArrayList<String> list) {
-                //这里可以拿到过滤后数据，所以在这里可以对搜索后的数据进行操作
-                Log.e("getFilterData", "接口回调成功");
-                Log.e("getFilterData", list.toString());
-            }
-        });
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
-        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mRecyclerView.setAdapter(mAdapter);
-
+        mAdapter = new SearchAdapter(context, mLists,this);
+        mHistoryAdapter = new SearchHistoryAdapter(context,mHistoryLists);
+        rvSearch.setLayoutManager(new LinearLayoutManager(context));
+        rvSearch.setItemAnimator(new DefaultItemAnimator());
+        rvSearch.setAdapter(mAdapter);
+        rvSearchHistory.setLayoutManager(new LinearLayoutManager(context));
+        rvSearchHistory.setItemAnimator(new DefaultItemAnimator());
+        rvSearchHistory.setAdapter(mHistoryAdapter);
     }
 
     @Override
@@ -71,16 +78,29 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
         mButton.setOnClickListener(this);
         tvHistory.setOnClickListener(this);
         tvClear.setOnClickListener(this);
+        mAdapter.setOnClickItemListener(new SearchAdapter.OnClickItemListener() {
+            @Override
+            public void onClickItem(String s) {
+                insertData(s);
+            }
+        });
         setListeners();
     }
 
     @Override
     public void onClick(View view) {
-
+        switch (view.getId()){
+            case R.id.bt_search:
+                insertData(mEditContent);
+                break;
+            case R.id.tv_search_clear:
+                doDeleteHistorySearch();
+                break;
+        }
     }
     private void setListeners() {
         // 没有进行搜索的时候，也要添加对listView的item单击监听
-        mRecyclerView.setVisibility(View.GONE);
+        rvSearch.setVisibility(View.GONE);
         /**
          * 对编辑框添加文本改变监听，搜索的具体功能在这里实现
          * 很简单，文本该变的时候进行搜索。关键方法是重写的onTextChanged（）方法。
@@ -103,9 +123,10 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
             @Override
             public void afterTextChanged(Editable s) {
                 if (mEditText.getText().length()==0){
-                    mRecyclerView.setVisibility(View.GONE);
+                    rvSearch.setVisibility(View.GONE);
                 }else {
-                    mRecyclerView.setVisibility(View.VISIBLE);
+                    rvSearch.setVisibility(View.VISIBLE);
+                    mEditContent = mEditText.getText().toString();
                 }
             }
         });
@@ -120,5 +141,67 @@ public class SearchFragment extends BaseFragment implements View.OnClickListener
         mLists.add("只有我   守着安静的沙漠");
         mLists.add("等待着花开");
         mLists.add("只有我   看着别人的快乐");
+    }
+    @Override
+    public void getFilterData(ArrayList<String> list) {
+        //这里可以拿到过滤后数据，所以在这里可以对搜索后的数据进行操作
+        Log.e("getFilterData", "接口回调成功");
+        Log.e("getFilterData", list.toString());
+    }
+    private void insertData(String s){
+        boolean hasData =hasData(s);
+        if (!hasData){
+            Log.i(TAG," hasData is  "+hasData);
+            insertHistorySearch(s);
+        }
+    }
+    /**
+     *
+     * 插入数据到数据库，即写入搜索字段到历史搜索记录
+     */
+    private void insertHistorySearch(String str){
+        if ( !"".equals(str)){
+            Log.i(TAG," insert Data  "+str);
+            sqlData = dqHelper.getWritableDatabase();
+            sqlData.execSQL("insert into records(name) values('" + str + "')");
+            sqlData.close();
+            mHistoryAdapter.addDataChanged(str);
+        }
+    }
+
+    /**
+     * 清空数据库
+     */
+    private void doDeleteHistorySearch(){
+        sqlData = dqHelper.getReadableDatabase();
+        sqlData.execSQL("delete from records");
+        sqlData.close();
+        mHistoryAdapter.notifyDataClearChanged();
+    }
+    /**
+     * 检查数据库中是否已经有该搜索记录
+     *
+     * 直接返回
+     */
+    private boolean hasData(String str) {
+        boolean isExist;
+        // 从数据库中Record表里找到name=tempName的id
+        Cursor cursor = dqHelper.getReadableDatabase().rawQuery(
+                "select id as id,name from records where name =?", new String[]{str});
+        //  判断是否有下一个
+        isExist = cursor.moveToNext();
+        Log.i(TAG,"str " + str+ " hasData "+isExist);
+        return isExist;
+    }
+    /**
+     * 查询数据库
+     */
+    private  void getHistorySearch(){
+        Cursor cursor = dqHelper.getReadableDatabase().rawQuery("select name from records",null);
+        while (cursor.moveToNext()){
+            mHistoryLists.add(cursor.getString(cursor.getColumnIndex("name")));
+            Log.i(TAG,"content is  " +cursor.getString(cursor.getColumnIndex("name")));
+        }
+        cursor.close();
     }
 }
