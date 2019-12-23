@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import com.example.ray.codecollections.R;
 import com.example.ray.codecollections.base.BaseActivity1;
 import com.example.ray.codecollections.base.BasePresenter;
+import com.example.ray.codecollections.view.BesselLineActivity.BesselLineActivity;
 import com.example.ray.codecollections.view.functionactivity.FunctionActivity;
 import com.example.ray.codecollections.view.recycleractivity.NavigationRecyclerActivity;
 import com.example.ray.codecollections.view.scrollactivity.ScrollingActivity;
@@ -27,6 +29,7 @@ public class MainActivity extends BaseActivity1 implements View.OnClickListener{
     private Button btRecyclers;
     private Button btFunctions;
     private Button btScrolls;
+    private Button btDefines;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,7 @@ public class MainActivity extends BaseActivity1 implements View.OnClickListener{
         btRecyclers = findViewById(R.id.bt_to_recyclers);
         btFunctions = findViewById(R.id.bt_to_functions);
         btScrolls = findViewById(R.id.bt_to_scroll);
+        btDefines = findViewById(R.id.bt_to_define);
     }
 
     @Override
@@ -59,6 +63,7 @@ public class MainActivity extends BaseActivity1 implements View.OnClickListener{
         btRecyclers.setOnClickListener(this);
         btFunctions.setOnClickListener(this);
         btScrolls.setOnClickListener(this);
+        btDefines.setOnClickListener(this);
     }
 
     @Override
@@ -72,6 +77,9 @@ public class MainActivity extends BaseActivity1 implements View.OnClickListener{
                 break;
             case R.id.bt_to_scroll:
                 startActivity(new Intent(this, ScrollingActivity.class));
+                break;
+            case R.id.bt_to_define:
+                startActivity(new Intent(this, BesselLineActivity.class));
                 break;
             default:
                 break;

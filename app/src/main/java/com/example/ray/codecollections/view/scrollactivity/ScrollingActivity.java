@@ -2,10 +2,7 @@ package com.example.ray.codecollections.view.scrollactivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -14,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.ray.codecollections.R;
-import com.example.ray.codecollections.defineviews.BesselView;
 import com.example.ray.codecollections.defineviews.ClockView;
 
 public class ScrollingActivity extends AppCompatActivity {

@@ -26,6 +26,7 @@
         android:supportsRtl="true"
         android:theme="@style/NoAppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".view.BesselLineActivity.BesselLineActivity"></activity>
         <activity android:name=".view.scrollactivity.ScrollingActivity" />
         <activity android:name=".designmodel.ModelAcitity" />
         <activity android:name=".view.functionactivity.FunctionActivity" />

@@ -23,6 +23,7 @@ public class NormalRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
     private Context mContext;
     private ArrayList<RecyclerBean> mDatas = new ArrayList<>();
+    private onClickItemListener mListener;
 
     public NormalRecyclerAdapter(Context mContext, ArrayList<RecyclerBean> mDatas) {
         this.mContext = mContext;
@@ -96,6 +97,12 @@ public class NormalRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             contentVH.imageView.setImageResource(bean.getImageSource());
             contentVH.textView.setText(bean.getTitle());
             //添加点击事件
+            contentVH.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //mListener.onClickItem(v);
+                }
+            });
         }
     }
 
@@ -103,4 +110,13 @@ public class NormalRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public int getItemCount() {
         return mDatas.size()+2;
     }
+
+    public interface onClickItemListener{
+        void onClickItem(View v);
+    }
+
+    public void setOnClickItemListener(onClickItemListener onClickItemListener){
+        this.mListener = onClickItemListener;
+    }
+
 }

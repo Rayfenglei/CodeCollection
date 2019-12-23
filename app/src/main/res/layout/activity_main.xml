@@ -25,4 +25,10 @@
         android:layout_height="wrap_content"
         android:text="@string/Scroll"
         android:textAllCaps="false"/>
+    <Button
+        android:id="@+id/bt_to_define"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Define"
+        android:textAllCaps="false"/>
 </LinearLayout>

@@ -11,21 +11,21 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
-public class BesselView extends View {
+public class BesselLinetoView extends View {
     private Paint mPaint;
     private Path mPath;
 
-    public BesselView(Context context) {
+    public BesselLinetoView(Context context) {
         super(context);
         init();
     }
 
-    public BesselView(Context context, AttributeSet attrs) {
+    public BesselLinetoView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public BesselView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public BesselLinetoView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
