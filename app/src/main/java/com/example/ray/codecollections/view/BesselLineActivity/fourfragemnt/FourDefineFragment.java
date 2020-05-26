@@ -9,19 +9,24 @@ import android.view.ViewGroup;
 
 import com.example.ray.codecollections.R;
 import com.example.ray.codecollections.base.BaseFragment1;
+import com.example.ray.codecollections.defineviews.LinesView;
 
 public class FourDefineFragment extends BaseFragment1 {
+    private LinesView linesView;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         setContentView(R.layout.fragment_define_four);
+        initView();
+        initEvent();
         return view;
     }
 
     @Override
     public void initView() {
-
+        linesView = view.findViewById(R.id.view_line);
     }
 
     @Override
@@ -31,6 +36,6 @@ public class FourDefineFragment extends BaseFragment1 {
 
     @Override
     public void initEvent() {
-
+        linesView.setAnimator();
     }
 }

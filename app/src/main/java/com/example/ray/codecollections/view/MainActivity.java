@@ -37,7 +37,7 @@ public class MainActivity extends BaseActivity1 implements View.OnClickListener{
         initView();
         initData();
         initEvent();
-        RxJava2Test();
+
     }
 
     @Override

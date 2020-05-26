@@ -10,12 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public abstract class BaseFragment1<PV, PT extends BasePresenter<PV>> extends Fragment implements IViewConstraint {
+public abstract class BaseFragment1 extends Fragment implements IViewConstraint {
     private static final String TAG = "BaseFragment1";
-    /**
-     * 表示层的引用
-     */
-    public PT mPresenter;
     /**
      * 添加该Fragment的Activity
      *
@@ -51,10 +47,10 @@ public abstract class BaseFragment1<PV, PT extends BasePresenter<PV>> extends Fr
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        context = (BaseActivity1) getActivity();
-        this.inflater = inflater;
-        this.container = container;
-        return view;
+            context = (BaseActivity1) getActivity();
+            this.inflater = inflater;
+            this.container = container;
+            return view;
     }
 
     /**
