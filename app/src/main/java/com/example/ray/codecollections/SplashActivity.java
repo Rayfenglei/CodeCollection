@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.ray.codecollections.base.BaseActivity1;
 import com.example.ray.codecollections.base.BasePresenter;
@@ -78,4 +79,7 @@ public class SplashActivity extends BaseActivity1 {
         return null;
     }
 
+    private void test(){
+        Log.e("test","这是测试代码");
+    }
 }

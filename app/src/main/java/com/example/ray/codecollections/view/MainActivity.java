@@ -1,12 +1,9 @@
 package com.example.ray.codecollections.view;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import com.example.ray.codecollections.R;
 import com.example.ray.codecollections.base.BaseActivity1;
@@ -28,7 +25,7 @@ public class MainActivity extends BaseActivity1 implements View.OnClickListener{
     private static final String TAG = "RX2JavaTest";
     private Button btRecyclers;
     private Button btFunctions;
-    private Button btScrolls;
+    private Button btnScrolls;
     private Button btDefines;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +41,7 @@ public class MainActivity extends BaseActivity1 implements View.OnClickListener{
     public void initView() {
         btRecyclers = findViewById(R.id.bt_to_recyclers);
         btFunctions = findViewById(R.id.bt_to_functions);
-        btScrolls = findViewById(R.id.bt_to_scroll);
+        btnScrolls = findViewById(R.id.bt_to_scroll);
         btDefines = findViewById(R.id.bt_to_define);
     }
 
@@ -62,7 +59,7 @@ public class MainActivity extends BaseActivity1 implements View.OnClickListener{
     public void initEvent() {
         btRecyclers.setOnClickListener(this);
         btFunctions.setOnClickListener(this);
-        btScrolls.setOnClickListener(this);
+        btnScrolls.setOnClickListener(this);
         btDefines.setOnClickListener(this);
     }
 
@@ -84,6 +81,9 @@ public class MainActivity extends BaseActivity1 implements View.OnClickListener{
             default:
                 break;
         }
+    }
+    private void test(){
+        Log.e("test","这是测试代码");
     }
     private void RxJava2Test(){
         Observable.create(new ObservableOnSubscribe<Integer>() {//第一步 初始化 observable
