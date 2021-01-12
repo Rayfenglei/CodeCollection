@@ -10,7 +10,6 @@ public class MyApplication  extends Application {
     public void onCreate() {
         super.onCreate();
         context = this;
-        //这是测试代码
     }
 
     public static Context getContext() {
